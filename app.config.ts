@@ -6,4 +6,5 @@ export default defineAppConfig({
       dynamic: true,
     },
   },
+  theme: 'dark',
 });
