@@ -1,14 +1,16 @@
 <script setup lang="ts">
-const { item } = defineProps<{
+import type { Meal } from '@/types/Menu';
+
+const { label, item } = defineProps<{
   label: string;
-  item: any;
+  item: Meal;
 }>();
 </script>
 
 <template>
-  <section class="pt-4 w-full h-full">
-    <h4 class="text-primary-500 text-xl text-center">{{ label }}</h4>
-    <section class="grid grid-rows-3 pt-2 text-white text-xs h-full">
+  <section class="w-full h-full">
+    <h4 class="text-primary-500 text-2xl">{{ label }}</h4>
+    <section class="grid grid-rows-3 pt-2 text-white text-sm h-full">
       <div class="flex gap-2 justify-between items-center h-1/3">
         <span class="">{{ item.mainDish.name }}</span>
         <span>{{ Number(item.mainDish.calories).toFixed(0) }}Cal</span>

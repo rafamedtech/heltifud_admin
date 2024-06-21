@@ -1,4 +1,6 @@
-type Meal = {
+import type { Menu, DayMenu } from '@prisma/client';
+
+export type Meal = {
   mainDish: {
     name: string;
     calories: number;
@@ -13,18 +15,28 @@ type Meal = {
   };
 };
 
-type DayMenu = {
+enum DayOfWeek {
+  LUNES = 'Lunes',
+  MARTES = 'Martes',
+  MIERCOLES = 'Miércoles',
+  JUEVES = 'Jueves',
+  VIERNES = 'Viernes',
+}
+
+export type DayMenuOutline = {
   dayOfWeek: string;
   breakfast: Meal;
   lunch: Meal;
   dinner: Meal;
 };
 
-type WeeklyMenu = DayMenu[];
+export type MenuOutline = {
+  id?: number;
+  startDate: Date;
+  endDate: Date;
+  dayMenus: DayMenuOutline[] | null;
+};
 
-type Menu = {
-  id: number;
-  startDate: string;
-  endDate: string;
-  weekMenus: WeeklyMenu;
+export type MenuFromDB = Menu & {
+  dayMenus: DayMenu[];
 };

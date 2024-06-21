@@ -24,7 +24,7 @@ const links = [
 </script>
 
 <template>
-  <nav class="lg:my-4 lg:pr-8 hidden lg:block">
+  <nav class="md:my-4 md:pr-8 lg:pr-8 hidden md:block">
     <UVerticalNavigation :links="links" />
   </nav>
 </template>
