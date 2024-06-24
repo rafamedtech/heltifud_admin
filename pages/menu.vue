@@ -1,5 +1,16 @@
 <script setup lang="ts">
-const { newMenu, currentMenu } = await useMenu();
+import type { MenuOutline, DayMenuOutline, MenuFromDB } from '@/types/Menu';
+const { downloadedMenu, currentMenu } = await useMenu();
+
+const newMenu = reactive<MenuOutline>({
+  startDate: new Date(),
+  endDate: new Date(),
+  dayMenus: downloadedMenu,
+});
+
+function saveMenu() {
+  console.log({ newMenu, currentMenu });
+}
 </script>
 
 <template>
@@ -20,7 +31,7 @@ const { newMenu, currentMenu } = await useMenu();
       </section>
 
       <section class="flex gap-2 justify-center pt-16">
-        <UButton label="Subir menú" size="lg" icon="i-heroicons-cloud-arrow-up" />
+        <UButton label="Subir menú" size="lg" icon="i-heroicons-cloud-arrow-up" @click="saveMenu" />
       </section>
     </UContainer>
   </main>

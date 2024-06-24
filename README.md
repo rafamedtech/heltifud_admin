@@ -6,3 +6,4 @@
 - [ ] Create the API endpoint to update the menu
 - [ ] Create the prisma queries to push the new menu to DB
 - [ ] Update /server/api/menu/current to get only the last item added to the menu table
+- [ ] Add datepicker to new menu

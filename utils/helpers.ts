@@ -38,7 +38,9 @@ export function transformPrice(item: number): string {
   }).format(item);
 }
 
-export function formatDate(date: string): string {
+export function formatDate(date: string | Date | undefined | null): string {
+  if (!date) return '';
+
   return new Date(date).toLocaleDateString('es-MX', shortDateOptions);
 }
 
